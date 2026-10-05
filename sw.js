@@ -1,7 +1,7 @@
 /* e-SR Desk — offline cache.
    Optional: only used when the application is served over https. It keeps the
    page itself available without a network, so the desk opens on a poor line. */
-const CACHE = "esr-desk-v1";
+const CACHE = "esr-desk-v2";
 self.addEventListener("install", (e) => { self.skipWaiting(); });
 self.addEventListener("activate", (e) => {
   e.waitUntil(caches.keys().then((k) => Promise.all(k.filter((x) => x !== CACHE).map((x) => caches.delete(x)))).then(() => self.clients.claim()));
